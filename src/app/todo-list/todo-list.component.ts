@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Todo } from '../model/Todo';
 import { TodoService } from '../service/todo.service';
 
@@ -11,7 +12,7 @@ export class TodoListComponent implements OnInit {
   title: string;
   todos: Todo[] = [];  
 
-  constructor(private todoService: TodoService) { 
+  constructor(private todoService: TodoService, private router: Router) { 
     console.info(`constructor`);
   }
 
@@ -26,4 +27,7 @@ export class TodoListComponent implements OnInit {
     console.info(this.todos);
   }
 
+  onClickDetail(id: number) {
+    this.router.navigate(['todo', id, 'detail']);
+  } 
 }

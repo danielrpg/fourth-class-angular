@@ -1,3 +1,10 @@
 <h1> {{title}} </h1>
 
-{{todos}}
+<ul>
+    <li *ngFor="let todo of todos">
+        <div *ngIf="todo.status">
+            {{todo.title}} - {{todo.date | date}} 
+            <button type="button" (click)="onClickDetail(todo.id)">Detail</button>
+        </div>
+    </li>
+</ul>

@@ -7,17 +7,13 @@ import { Todo } from '../model/Todo';
 export class TodoService {
 
   public todos: Todo[] = [];
-  constructor() { }
 
-  /**
-   *    public id: number,
-        public title: string,
-        public date: Date,
-        public description: string,
-        public status: boolean
-   */
-  getAllTodos(): Todo[] {
-    let todoListData: Todo[] = [
+  constructor() {
+    this.setAllTodos();
+  }
+
+  setAllTodos(): void {
+    this.todos = [
       {
         id: 1,
         title: 'Study Angular',
@@ -31,9 +27,22 @@ export class TodoService {
         date: new Date(),
         description: 'Need to study angular fundamentals',
         status: true
+      },
+      {
+        id: 3,
+        title: 'Study JAVA Spring Boot',
+        date: new Date(),
+        description: 'Need to study Spring fundamentals',
+        status: true
       }
     ];
+  }
 
-    return todoListData;
+  getAllTodos(): Todo[] {
+    return this.todos;
+  }
+
+  getTodoById(id: number): Todo {
+    return this.todos.find(todo => todo.id == id);
   }
 }

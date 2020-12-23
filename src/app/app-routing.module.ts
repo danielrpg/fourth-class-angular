@@ -14,8 +14,9 @@ const routes: Routes = [
     component:TodoListComponent
   },
   {
-    path: 'todo-detail',
-    component: TodoDetailComponent
+    path: 'todo/:id/detail',
+    component: TodoDetailComponent,
+    pathMatch: 'full'
   }
 ];
 
